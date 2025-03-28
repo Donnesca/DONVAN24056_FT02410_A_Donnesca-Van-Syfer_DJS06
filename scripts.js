@@ -43,6 +43,47 @@ const uppercaseProvinces = provinces.map((province) => province.toUpperCase());
 console.log("\nUppercase Provinces:");
 console.log(uppercaseProvinces);
 
+// Created a new array using map that contains the length of each name.
+const nameLengths = names.map((name) => name.length);
+
+// Log the new array to the console.
+console.log("\nName Lengths:");
+console.log(nameLengths);
+
+// Use sort to alphabetically sort the provinces.
+const sortedProvinces = [...provinces].sort(); // Create a copy to avoid mutating the original array
+
+// Log the sorted array to the console.
+console.log("\nSorted Provinces:");
+console.log(sortedProvinces);
+
+// Used filter to remove provinces containing "Cape" and log the count of remaining provinces.
+const filteredProvinces = provinces.filter(
+  (province) => !province.includes("Cape")
+);
+const remainingProvinceCount = filteredProvinces.length;
+
+console.log("\nProvinces without 'Cape':");
+console.log(filteredProvinces);
+console.log("\nCount of remaining provinces:", remainingProvinceCount);
+
+// Created a boolean array using map and some to determine if a name contains the letter 'S'.
+const containsS = names.map((name) => {
+  return name.split("").some((letter) => letter.toUpperCase() === "S");
+});
+
+console.log("\nNames containing 'S':");
+console.log(containsS);
+
+// Used reduce to transform the names array into an object mapping names to their respective provinces.
+const nameProvinceMap = names.reduce((acc, name, index) => {
+  acc[name] = provinces[index];
+  return acc;
+}, {});
+
+console.log("\nName to Province Mapping:");
+console.log(nameProvinceMap);
+
 // A list of products with prices:
 const products = [
   { product: "banana", price: "2" },
